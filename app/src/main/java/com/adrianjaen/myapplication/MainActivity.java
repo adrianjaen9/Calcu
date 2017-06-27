@@ -16,7 +16,7 @@ private int numero = 0;
 
         setContentView(R.layout.activity_main);
     }
-    ///hola que tal
+    ///hola
     @Override
     protected void onStart() {
         super.onStart();
