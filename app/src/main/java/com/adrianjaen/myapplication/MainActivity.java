@@ -11,30 +11,65 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonOne, buttonTwo, buttonThree;
-    TextView texto;
+    Button buttonOne, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
+    Boolean suma = false;
+    Boolean resta = false;
+    Boolean multi = false;
+    Boolean divi = false;
+    Boolean modul = false;
+    Boolean decimal = false;
+    Double numero1, numero2, resultat;
+
 
 
 private int numero = 0;
     private String TAG= "MainActivity";
 
-    private void setText(String texto){
-        this.texto.setText(texto);
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.v(TAG, "onCreate");
         setContentView(R.layout.activity_main);
-        buttonOne = (Button) findViewById(R.id.num0);
-        buttonTwo = (Button) findViewById(R.id.num1);
-        buttonThree = (Button) findViewById(R.id.num2);
-        texto = (TextView) findViewById(R.id.num3);
+        num0 = (Button) findViewById(R.id.num0);
+        num0.setOnClickListener(this);
+        num1 = (Button) findViewById(R.id.num1);
+        num1.setOnClickListener(this);
+        num2 = (Button) findViewById(R.id.num2);
+        num2.setOnClickListener(this);
+        num3 = (Button) findViewById(R.id.num3);
+        num3.setOnClickListener(this);
+        num4 = (Button) findViewById(R.id.num4);
+        num4.setOnClickListener(this);
+        num5 = (Button) findViewById(R.id.num5);
+        num5.setOnClickListener(this);
+        num6 = (Button) findViewById(R.id.num6);
+        num6.setOnClickListener(this);
+        num7 = (Button) findViewById(R.id.num7);
+        num7.setOnClickListener(this);
+        num8 = (Button) findViewById(R.id.num8);
+        num8.setOnClickListener(this);
+        num9 = (Button) findViewById(R.id.num9);
+        num9.setOnClickListener(this);
+        sum = (Button) findViewById(R.id.sum);
+        sum.setOnClickListener(this);
+        rest = (Button) findViewById(R.id.rest);
+        rest.setOnClickListener(this);
+        mult = (Button) findViewById(R.id.multiplicar);
+        mult.setOnClickListener(this);
+        div = (Button) findViewById(R.id.dividir);
+        div.setOnClickListener(this);
+        ac = (Button) findViewById(R.id.ac);
+        ac.setOnClickListener(this);
+        ans = (Button) findViewById(R.id.ans);
+        ans.setOnClickListener(this);
+        dec = (Button) findViewById(R.id.dec);
+        dec.setOnClickListener(this);
+        mod = (Button) findViewById(R.id.mod);
+        mod.setOnClickListener(this);
 
 
-        texto.setText("OHLALÁ");
+
 
         final Context context = this;
 
@@ -47,8 +82,7 @@ private int numero = 0;
 
             }
         });
-        buttonTwo.setOnClickListener(this);
-        buttonThree.setOnClickListener(this);
+
     }
 
     @Override
@@ -67,18 +101,110 @@ private int numero = 0;
 
     @Override
     public void onClick(View v) {
+        TextView result = (TextView)findViewById(R.id.result);
+        String a =result.getText().toString();
         switch (v.getId()){
             case R.id.num0:
-                Log.v(TAG,"SOY EL BOTON 1 en this");
-                setText("SOY EL BOTON 1");
-                setText("SOY EL BOTON 1");
+                result.setText(a+"0");
+                break;
             case R.id.num1:
-                Log.v(TAG,"SOY EL BOTON 2");
+                result.setText(a+"1");
                 break;
             case R.id.num2:
-                Log.v(TAG,"SOY EL BOTON 3");
+                result.setText(a+"2");
                 break;
+            case R.id.num3:
+                result.setText(a+"3");
+                break;
+            case R.id.num4:
+                result.setText(a+"4");
+                break;
+            case R.id.num5:
+                result.setText(a+"5");
+                break;
+            case R.id.num6:
+                result.setText(a+"6");
+                break;
+            case R.id.num7:
+                result.setText(a+"7");
+                break;
+            case R.id.num8:
+                result.setText(a+"8");
+                break;
+            case R.id.num9:
+                result.setText(a+"9");
+                break;
+            case R.id.sum:
+                suma = true;
+                numero1 = Double.parseDouble(a);
+                result.setText("");
+                break;
+            case R.id.mod:
+                modul = true;
+                numero1 = Double.parseDouble(a);
+                result.setText("");
+                break;
+            case R.id.dec:
+                if (decimal == false) {
+                    result.setText(a + ".");
+                    decimal = true;
+                }
+                else{return;}
+                break;
+            case R.id.rest:
+                resta = true;
+                numero1 = Double.parseDouble(a);
+                result.setText("");
+                break;
+            case R.id.multiplicar:
+                multi = true;
+                numero1 = Double.parseDouble(a);
+                result.setText("");
+                break;
+            case R.id.dividir:
+                divi = true;
+                numero1 = Double.parseDouble(a);
+                result.setText("");
+                break;
+            case R.id.ac:
+                numero1 = 0.0;
+                numero2 = 0.0;
+                result.setText("");
+                break;
+            case R.id.igual:
+                if ( suma == true){
+                    numero2 = Double.parseDouble(a);
+                    resultat = numero1 + numero2;
+                    result.setText(String.valueOf(resultat));
+                }else if ( resta == true){
+                    numero2 = Double.parseDouble(a);
+                    resultat = numero1 - numero2;
+                    result.setText(String.valueOf(resultat));
+                }else if ( multi == true){
+                    numero2 = Double.parseDouble(a);
+                    resultat = numero1 * numero2;
+                    result.setText(String.valueOf(resultat));
+                }else if ( divi == true){
+                    numero2 = Double.parseDouble(a);
+                    resultat = numero1 / numero2;
+                    result.setText(String.valueOf(resultat));
+                }else if ( modul == true){
+                    numero2 = Double.parseDouble(a);
+                    resultat = numero1 % numero2;
+                    result.setText(String.valueOf(resultat));
+                }
+
+                break;
+            case R.id.ans:
+                break;
+
         }
+        suma = false;
+        resta = false;
+        multi = false;
+        divi = false;
+        decimal = false;
+        modul = false;
     }
     public void mehanhechoclick(View v){
 

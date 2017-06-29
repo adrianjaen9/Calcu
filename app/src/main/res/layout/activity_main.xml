@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/RESULT"
+            android:id="@+id/result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -30,11 +30,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/AC"
+            android:id="@+id/ac"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="@android:color/holo_orange_dark"
+            android:backgroundTint="?android:attr/colorActivatedHighlight"
             android:text="AC"
             android:textColor="@android:color/background_light"
             android:textColorLink="@android:color/background_light"
@@ -102,7 +102,7 @@
             tools:text="9" />
 
         <Button
-            android:id="@+id/percent"
+            android:id="@+id/mod"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -144,7 +144,7 @@
             tools:text="6" />
 
         <Button
-            android:id="@+id/restar"
+            android:id="@+id/rest"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -186,7 +186,7 @@
             tools:text="3" />
 
         <Button
-            android:id="@+id/suma"
+            android:id="@+id/sum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -209,7 +209,7 @@
             tools:text="0" />
 
         <Button
-            android:id="@+id/coma"
+            android:id="@+id/dec"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -217,7 +217,7 @@
             tools:text="," />
 
         <Button
-            android:id="@+id/parentesis"
+            android:id="@+id/parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
