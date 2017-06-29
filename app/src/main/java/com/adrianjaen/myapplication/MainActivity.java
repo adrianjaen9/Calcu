@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonOne, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
+    Button igual, num0 ,num1, num2, num3, num4, num5, num6, num7, num8 ,num9, sum, rest, mult, div, ac, ans, mod, dec;
     Boolean suma = false;
     Boolean resta = false;
     Boolean multi = false;
@@ -67,6 +69,8 @@ private int numero = 0;
         dec.setOnClickListener(this);
         mod = (Button) findViewById(R.id.mod);
         mod.setOnClickListener(this);
+        igual = (Button) findViewById(R.id.igual);
+        igual.setOnClickListener(this);
 
     }
 
@@ -163,6 +167,7 @@ private int numero = 0;
                 result.setText("");
                 break;
             case R.id.igual:
+                Log.v("HOLA","hemos entrado en el igual");
                 numero2 = Double.parseDouble(a);
                 if ( suma == true){
                     resultat = numero1 + numero2;
@@ -196,8 +201,5 @@ private int numero = 0;
         }
 
     }
-
-    public void mehanhechoclick(View v){
-
-    }
+    
 }
