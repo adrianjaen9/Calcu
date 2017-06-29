@@ -68,21 +68,6 @@ private int numero = 0;
         mod = (Button) findViewById(R.id.mod);
         mod.setOnClickListener(this);
 
-
-
-
-        final Context context = this;
-
-        buttonOne.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, Main2Activity.class);
-                startActivity(i);
-
-
-            }
-        });
-
     }
 
     @Override
@@ -169,43 +154,49 @@ private int numero = 0;
             case R.id.ac:
                 numero1 = 0.0;
                 numero2 = 0.0;
+                suma = false;
+                resta = false;
+                multi = false;
+                divi = false;
+                decimal = false;
+                modul = false;
                 result.setText("");
                 break;
             case R.id.igual:
+                numero2 = Double.parseDouble(a);
                 if ( suma == true){
-                    numero2 = Double.parseDouble(a);
                     resultat = numero1 + numero2;
                     result.setText(String.valueOf(resultat));
                 }else if ( resta == true){
-                    numero2 = Double.parseDouble(a);
                     resultat = numero1 - numero2;
                     result.setText(String.valueOf(resultat));
                 }else if ( multi == true){
-                    numero2 = Double.parseDouble(a);
                     resultat = numero1 * numero2;
                     result.setText(String.valueOf(resultat));
                 }else if ( divi == true){
-                    numero2 = Double.parseDouble(a);
                     resultat = numero1 / numero2;
                     result.setText(String.valueOf(resultat));
                 }else if ( modul == true){
-                    numero2 = Double.parseDouble(a);
                     resultat = numero1 % numero2;
                     result.setText(String.valueOf(resultat));
                 }
+                suma = false;
+                resta = false;
+                multi = false;
+                divi = false;
+                decimal = false;
+                modul = false;
 
                 break;
             case R.id.ans:
+                numero1 = resultat;
+                result.setText(String.valueOf(resultat));
                 break;
 
         }
-        suma = false;
-        resta = false;
-        multi = false;
-        divi = false;
-        decimal = false;
-        modul = false;
+
     }
+
     public void mehanhechoclick(View v){
 
     }
